@@ -1,0 +1,95 @@
+.game-container {
+  width: 250px;
+  height: 300px;
+  margin-top: 30px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid white;
+  border-radius: 3px;
+  position: relative;
+}
+
+.game-photo-container {
+  width: 100%;
+  height: 60%;
+}
+
+.game-photo {
+  width: 100%;
+  height: 200px;
+}
+
+.game-desc {
+  width: 100%;
+  height: 40%;
+  position: relative;
+}
+
+.game-name {
+  font-size: 21px;
+  color: white;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.game-price {
+  font-size: 17px;
+  color: white;
+  position: absolute;
+  bottom: -2px;
+  left: 20px;
+}
+
+.download-btn {
+  width: 120px;
+  height: 40px;
+  border: 2px solid black;
+  background-color: DodgerBlue;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.download-btn:focus {
+  outline: none;
+}
+
+.download-btn:hover {
+  outline: none;
+  transform: scale(0.95);
+  background-color: RoyalBlue;
+}
+
+@media(max-width: 350px) {
+  .game-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .game-name {
+    position: relative;
+    top: 8px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .game-price {
+    position: relative;
+    top: -13px;
+    left: 0;
+    right: 0;
+    bottom: 14px;
+  }
+  .download-btn {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    right: 0;
+  }
+}

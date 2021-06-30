@@ -1,0 +1,34 @@
+.class {
+  width: 100%;
+  height: auto;
+  border: 2px solid pink;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.class-category {
+  position: relative;
+  bottom: 10px;
+  left: 0;
+  font-size: 35px;
+  color: white;
+}
+
+.games-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid blue;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+@media(max-width: 350px) {
+  .class-category {
+    font-size: 30px;
+  }
+}
