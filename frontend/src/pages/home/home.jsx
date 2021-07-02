@@ -1,10 +1,12 @@
 import React from "react"
 import "./styles.css"
 import MonthTops from "../../components/games/month-tops/month-tops"
+import Navbar from "../../components/navbar/navbar";
 
 const Home = () => {
   return (
     <div className="container">
+      <Navbar />
       <MonthTops />
       <div className="class" name="sales">
         <h2 className="class-category">Sales</h2>
