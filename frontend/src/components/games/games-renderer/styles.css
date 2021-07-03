@@ -46,22 +46,17 @@
   width: 120px;
   height: 40px;
   border: 2px solid black;
-  background-color: DodgerBlue;
+  background-image: linear-gradient(-100deg, rgb(26, 109, 7), rgb(68, 223, 29));
   position: absolute;
   right: 10px;
   bottom: 5px;
   font-size: 16px;
   cursor: pointer;
-}
-
-.download-btn:focus {
-  outline: none;
+  border-radius: 5px;
 }
 
 .download-btn:hover {
-  outline: none;
   transform: scale(0.95);
-  background-color: RoyalBlue;
 }
 
 @media(max-width: 350px) {
