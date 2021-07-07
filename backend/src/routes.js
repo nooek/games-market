@@ -1,5 +1,8 @@
+const userRouter = require("./routes/user/user")
+
 module.exports = (app) => {
-  app.get("/", (req, res) => {
+  app.get("/api", (req, res) => {
     res.send("hello world")
   })
+  app.use("/api/user", userRouter)
 }
