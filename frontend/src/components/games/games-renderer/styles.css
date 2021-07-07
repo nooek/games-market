@@ -50,9 +50,10 @@
   position: absolute;
   right: 10px;
   bottom: 5px;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 .download-btn:hover {

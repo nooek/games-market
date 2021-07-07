@@ -18,4 +18,4 @@ const verifyConnection = async () => {
 
 verifyConnection();
 
-module.exports = sequelize
+module.exports = sequelize;
