@@ -1,0 +1,99 @@
+.gcomments-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.gcomments-title {
+  font-size: 35px;
+  color: white;
+  font-style: "Roboto";
+  text-align: center;
+}
+
+.gcomments-write-container {
+  width: 100%;
+  height: auto;
+  display: inline-flex;
+}
+
+.gcomments-write-input {
+  width: 86%;
+  height: 50px;
+  margin-left: 10px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+}
+
+.gcomments-write-input:focus {
+  outline: none;
+}
+
+.gcomments-button-send-comment {
+  width: 12%;
+  height: 50px;
+  margin-left: 1%;
+}
+
+.gcomments-button-send-comment:focus {
+  outline: none;
+}
+
+.gcomments-cards-container {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.gcomments-cards {
+  width: 32%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid white;
+  margin-top: 30px;
+  margin-left: 10px;
+  align-self: flex-start;
+}
+
+.gcomments-cards-header {
+  width: 100%;
+  min-height: 60px;
+  max-height: 90px;
+  border-bottom: 2px solid white;
+  display: inline-flex;
+  align-items: center;
+  word-break: break-all;
+}
+
+.gcomments-cards-user {
+  font-size: 18px;
+  color: white;
+  margin-left: 5px;
+}
+
+.gcomments-cards-comment-container {
+  text-align: left;
+  width: 100%;
+  height: auto;
+  word-break: break-word;
+}
+
+.gcomments-cards-comment {
+  font-size: 18px;
+  color: white;
+  font-style: "Roboto";
+  margin-left: 5px;
+}
+
+.gcomments-cards-comment-time {
+  font-size: 15px;
+  color: rgb(211, 177, 177);
+  font-style: "Roboto";
+  margin-left: 10px;
+}

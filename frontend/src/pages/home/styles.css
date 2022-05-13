@@ -1,7 +1,8 @@
 .container {
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(360deg, rgb(53, 10, 20),rgb(107, 16, 34), rgb(155, 18, 45));
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(360deg, rgb(37, 27, 30),rgb(39, 24, 26), rgb(27, 3, 8));
+  position: relative;
 }
-
-/* background-image: linear-gradient(360deg, rgb(53, 10, 20),rgb(107, 16, 34), rgb(155, 18, 45)); */

@@ -1,0 +1,25 @@
+const validCategories = [
+  "action",
+  "adventure",
+  "horror",
+  "shooter",
+  "top-down",
+  "metroid-vania",
+  "anime",
+  "cartoon",
+  "puzzle",
+  "sports",
+  "nsfw",
+  "strategy",
+  "simulation",
+  "music",
+  "fantasy",
+  "platform",
+  "rhythm",
+  "rpg",
+  "casual",
+  "trivia",
+  "battle-royale",
+];
+
+module.exports = validCategories

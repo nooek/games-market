@@ -1,19 +1,22 @@
 import React from "react";
-import "./styles.css";
+import { Link } from "react-router-dom"
+import "./gamesStyles.css";
 
-const GamesRenderer = (props) => {
-  return props.games.slice(0, 5).map((game, index) => {
+const GamesRenderer = ({ games }) => {
+  return games.slice(0, 5).map((game, index) => {
     return (
-      <div className="game-container" key={index}>
-        <div className="game-photo-container">
-          <img className="game-photo" src={game.photo} alt="dsa" />
+      <Link to={"/game/" + game.id} key={game.id}>
+        <div className="game-container" key={index}>
+          <div className="game-photo-container">
+            <img className="game-photo" src={game.thumbnail} alt="dsa" />
+          </div>
+          <div className="game-desc">
+            <h2 className="game-name">{game.name}</h2>
+            <h2 className="game-price">{game.price}$</h2>
+            <button className="download-btn">Download</button>
+          </div>
         </div>
-        <div className="game-desc">
-          <h2 className="game-name">{game.name}</h2>
-          <h2 className="game-price">{game.price}</h2>
-          <button className="download-btn">Download</button>
-        </div>
-      </div>
+      </Link>
     );
   });
 };

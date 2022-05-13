@@ -1,0 +1,22 @@
+.store-menu-container {
+  width: 350px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  border-bottom: 4px solid black;
+  position: absolute;
+  top: 100%;
+  background: rgb(49, 49, 49);
+  cursor: pointer;
+}
+
+.category-name {
+  font-size: 20px;
+  color: black;
+  position: absolute;
+  left: 20px;
+  cursor: pointer;
+}

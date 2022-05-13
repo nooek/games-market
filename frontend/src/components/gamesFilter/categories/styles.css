@@ -1,0 +1,43 @@
+.gf-categories-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gf-categories-options-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.gf-categories-options {
+  width: 20%;
+  height: 40px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.gf-show-more-btn {
+  width: 250px;
+  height: 35px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.gf-apply-btn {
+  width: 250px;
+  height: 35px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 17px;
+  background: rgb(28, 189, 55);
+}

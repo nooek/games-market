@@ -1,5 +1,8 @@
 const app = require("./index")
+const db = require("../models")
 
-app.listen(3333, () => {
-  console.log("Server running on port 3333")
+db.sequelize.sync().then(() => {
+  app.listen(3333, () => {
+    console.log("Server running on port 3030")
+  })
 })

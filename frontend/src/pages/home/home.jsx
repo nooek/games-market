@@ -1,13 +1,17 @@
 import React from "react"
 import "./styles.css"
-import MonthTops from "../../components/games/month-tops/month-tops"
-import Navbar from "../../components/navbar/navbar";
+import {
+  Navbar,
+  FreeGames,
+  BestRatedGames
+} from "../../components/index";
 
 const Home = () => {
   return (
     <div className="container">
       <Navbar />
-      <MonthTops />
+      <FreeGames />
+      <BestRatedGames />
     </div>
   );
 }

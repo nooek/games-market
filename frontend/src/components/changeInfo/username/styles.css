@@ -1,0 +1,28 @@
+.changeusername-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.changeusername-title {
+  color: white;
+  font-size: 45px;
+  text-align: center;
+}
+
+.changeusername-input {
+  width: 300px;
+  height: 50px;
+  border: 2px solid white;
+}
+
+.changeusername-btn-change {
+  width: 120px;
+  height: 30px;
+  font-size: 17px;
+  border: 1px solid white;
+  margin-top: 20px;
+}

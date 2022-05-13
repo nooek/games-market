@@ -1,0 +1,101 @@
+.game-container {
+  width: 250px;
+  height: 300px;
+  margin-top: 30px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px rgb(90, 90, 90);
+  position: relative;
+}
+
+.game-photo-container {
+  width: 100%;
+  height: 60%;
+}
+
+.game-photo {
+  width: 100%;
+  height: 200px;
+}
+
+.game-desc {
+  width: 100%;
+  height: calc(100% - 200px);
+  position: absolute;
+  bottom: 0;
+  background: rgb(12, 104, 165);
+  background-image: linear-gradient(rgb(14, 91, 143), rgb(18, 145, 230))
+}
+
+.game-name {
+  font-size: 21px;
+  color: white;
+  position: absolute;
+  left: 15px;
+  top: -2px;
+}
+
+.game-price {
+  font-size: 17px;
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+}
+
+.download-btn {
+  width: 120px;
+  height: 40px;
+  border: 2px solid black;
+  background-image: linear-gradient(-100deg, rgb(27, 117, 7), rgb(68, 223, 29));
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.download-btn:hover {
+  transform: scale(0.95);
+}
+
+@media(max-width: 300px) {
+  .game-container {
+    width: 95%;
+  }
+}
+
+@media(max-width: 350px) {
+  .game-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .game-name {
+    position: relative;
+    top: -10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .game-price {
+    position: relative;
+    top: -35px;
+    left: 0;
+    right: 0;
+    bottom: 14px;
+  }
+  .download-btn {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    right: 0;
+  }
+}

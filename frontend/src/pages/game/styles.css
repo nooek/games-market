@@ -1,0 +1,146 @@
+.container-game {
+  width: 100%;
+  height: 100%;
+}
+
+.container-general {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-spec-container {
+  margin-top: 20px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 2px solid white;
+}
+
+@media (max-width: 850px) {
+  .game-spec-container {
+    flex-direction: column;
+  }
+}
+
+.gamepage-thumbnail-container {
+  height: auto;
+  width: 500px;
+  display: flex;
+}
+
+@media(max-width: 550px) {
+  .gamepage-thumbnail-container {
+    width: 100%;
+  }
+}
+
+.gamepage-thumb {
+  width: 100%;
+  height: auto;
+  margin-left: 10px;
+}
+
+.gamepage-name {
+  color: white;
+  font-size: 30px;
+}
+
+.gamepage-desc {
+  color: white;
+  font-size: 20px;
+}
+
+.gamepage-price {
+  color: white;
+  font-size: 27px;
+}
+
+.gamepage-creator {
+  color: white;
+  font-size: 21.5px;
+}
+
+.gamepage-categories {
+  color: white;
+  font-size: 21.5px;
+}
+
+.gamepage-spec-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.download-game-btn {
+  width: 300px;
+  height: 50px;
+  border: 2px solid white;
+  background-image: linear-gradient(-100deg, rgb(27, 117, 7), rgb(68, 223, 29));
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+@media(max-width: 300px) {
+  .download-game-btn {
+    width: 95%
+  }
+}
+
+.download-game-btn:hover {
+  transform: scale(0.95);
+}
+
+.game-rating-container {
+  width: 350px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.game-rating-text {
+  font-size: 25px;
+  color: white;
+}
+
+.game-rating-emojis-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.rating-emoji {
+  width: 100px;
+  cursor: pointer
+}
+
+.gr-emoji-container {
+  width: 50%;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.like-emoji {
+  color: green;
+}
+
+.dislike-emoji {
+  color: red;
+}
