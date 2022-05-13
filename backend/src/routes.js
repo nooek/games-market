@@ -10,8 +10,8 @@ module.exports = (app) => {
   app.get("/api", (req, res) => {
     res.send("hello world")
   })
-  app.use("/api/userr", userRouter)
-  app.use("/api/gamess", gamesRouter)
-  app.use("/api/devv", developerRouter)
-  app.use("/api/commentss", commentsRouter)
+  app.use("/api/user", userRouter)
+  app.use("/api/games", gamesRouter)
+  app.use("/api/dev", developerRouter)
+  app.use("/api/comments", commentsRouter)
 }
