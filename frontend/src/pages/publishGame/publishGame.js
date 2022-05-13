@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./styles.css";
 import axios from "axios";
 import { useUserData } from "../../store/userContext";
-import CurrencyInput from "react-currency-input-field"
 import ListCategories from "../../components/listCategories/listCategories";
+import GameInfo from "../../components/gameInfo/gameInfo";
 
 const PublishGame = () => {
   const [name, setName] = useState("");
@@ -42,6 +42,13 @@ const PublishGame = () => {
         if (res.data.message) {
           setMessage(res.data.message);
         }
+        setName("")
+        setDesc("")
+        setPrice(0)
+        setImage("")
+        setPreview("")
+        setGame("")
+        setActiveCategories("")
       })
       .catch((err) => {
         if (err.response) {
@@ -103,34 +110,7 @@ const PublishGame = () => {
           />
           {preview ? <img className="thumbnail" src={preview} alt="preview" /> : null}
         </div>
-        <div className="info-inputs-container">
-          <div className="info-input-container">
-            <h1 className="info-input-category">Name</h1>
-            <input
-              className="info-input"
-              placeholder="Game Name"
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className="info-input-container">
-            <h1 className="info-input-category">Description</h1>
-            <textarea
-              className="info-input desc-input"
-              placeholder="Game Description"
-              onChange={(e) => setDesc(e.target.value)}
-            />
-          </div>
-          <div className="info-input-container">
-            <h1 className="info-input-category">Price (dollars)</h1>
-            <CurrencyInput 
-              className="info-input"
-              defaultValue={0}
-              decimalsLimit={2}
-              prefix="$"
-              onValueChange={(value) => setPrice(value)}
-            />
-          </div>
-        </div>
+        <GameInfo setName={setName} setDesc={setDesc} setPrice={setPrice} />
         <h1 className="info-input-category">Game</h1>
         <input type="file" onChange={(e) => setGame(e.target.files)} style={{ color: "white", marginBottom: "30px", marginTop: "30px" }} />
         <h1 className="info-input-category">Category</h1>

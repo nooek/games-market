@@ -8,8 +8,6 @@ import { useUserData } from '../../store/userContext';
 const Profile = () => {
   const { userData } = useUserData()
 
-  console.log(userData)
-
   return (
     <div className="profile-container">
       <h2 className="profile-title">My profile</h2>
