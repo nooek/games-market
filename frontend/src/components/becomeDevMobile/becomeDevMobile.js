@@ -8,7 +8,7 @@ const BecomeDevMobile = ({ chooseYes, chooseNo }) => {
 
   const becomeDev = () => {
     axios
-      .post("http://localhost:3333/api/devv", {
+      .post("http://localhost:3333/api/dev", {
         userId: userData.id,
       })
       .then((res) => {

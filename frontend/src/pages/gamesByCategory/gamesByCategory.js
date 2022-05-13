@@ -13,7 +13,7 @@ const GamesByCategory = ({ match }) => {
   const { categories, minprice, maxprice } = match.params
 
   useEffect(() => {
-    axios.post("http://localhost:3333/api/gamess/filter", {
+    axios.post("http://localhost:3333/api/games/filter", {
       minPrice: minprice,
       maxPrice: maxprice,
       categories: categories.split("-")

@@ -8,8 +8,7 @@ const ChangeUsername = () => {
   const [newUsername, setNewUsername] = useState("")
 
   const changeUsername = () => {
-    console.log(userData)
-    axios.patch("http://localhost:3333/api/userr/changeusername", {
+    axios.patch("http://localhost:3333/api/user/changeusername", {
       user_id: userData.id,
       newUsername: newUsername 
     }).then(res => console.log(res)).catch(err => console.log(err))

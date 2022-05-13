@@ -10,7 +10,7 @@ const GamesFilter = (props) => {
   const [categories, setCategories] = useState(props.defaultCategories.split("-"))
 
   const applyFilter = () => {
-    axios.post("http://localhost:3333/api/gamess/filter", {
+    axios.post("http://localhost:3333/api/games/filter", {
       minPrice: minPrice,
       maxPrice: maxPrice,
       categories: categories

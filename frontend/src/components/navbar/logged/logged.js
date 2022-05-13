@@ -14,7 +14,7 @@ const Logged = () => {
   const [showStoreMenu, setShowStoreMenu] = useState(false)
 
   const verifyDev = () => {
-    axios.get(`http://localhost:3333/api/devv/${userData.id}`)
+    axios.get(`http://localhost:3333/api/dev/${userData.id}`)
      .then((res) => {
        if (res.data.isDev) {
         history.push('/publish/game')

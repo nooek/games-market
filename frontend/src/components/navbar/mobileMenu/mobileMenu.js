@@ -33,7 +33,7 @@ const MobileMenu = () => {
     if (userData.isDev) {
       setRedirect(true);
     }
-    axios.get(`http://localhost:3333/api/devv/${userData.id}`).then((res) => {
+    axios.get(`http://localhost:3333/api/dev/${userData.id}`).then((res) => {
       if (res.data.isDev) {
         setRedirect(true);
       } else {

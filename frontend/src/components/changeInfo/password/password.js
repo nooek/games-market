@@ -9,7 +9,7 @@ const ChangePassword = () => {
 
   const changePassword = () => {
     console.log(userData)
-    axios.patch("http://localhost:3333/api/userr/changepassword", {
+    axios.patch("http://localhost:3333/api/user/changepassword", {
       user_id: userData.id,
       newPassword: newPassword 
     }).then(res => console.log(res)).catch(err => console.log(err))

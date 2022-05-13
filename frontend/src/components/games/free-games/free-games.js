@@ -6,7 +6,7 @@ const FreeGames = () => {
   const [games, setGames] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:3333/api/gamess/free-games")
+    axios.get("http://localhost:3333/api/games/free-games")
       .then((res) => {
         console.log(res)
         if (res.data) {

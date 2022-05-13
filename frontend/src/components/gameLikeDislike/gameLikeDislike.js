@@ -9,15 +9,14 @@ const GameLikeDislike = ({ userData, played, id }) => {
   const [dislikes, setDislikes] = useState(0);
   console.log(userData)  
   useEffect(() => {
-    axios.get(`http://localhost:3333/api/gamess/get-game/${id}`).then((res) => {
-      console.log(res)
+    axios.get(`http://localhost:3333/api/games/get-game/${id}`).then((res) => {
       setLikes(parseInt(res.data[0][0].likes));
       setDislikes(parseInt(res.data[0][0].dislikes));
     });
   }, [id]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3333/api/gamess/get-user-rating/${id}/${userData.id}`).then((res) => {
+    axios.get(`http://localhost:3333/api/games/get-user-rating/${id}/${userData.id}`).then((res) => {
       if (!res.data.message) {
         setRating(res.data.rating)
       }
@@ -33,7 +32,7 @@ const GameLikeDislike = ({ userData, played, id }) => {
 
   const like = () => {
     axios
-      .post("http://localhost:3333/api/gamess/rate", {
+      .post("http://localhost:3333/api/games/rate", {
         userId: userData.id,
         gameId: id,
         rating: "like",
@@ -55,7 +54,7 @@ const GameLikeDislike = ({ userData, played, id }) => {
 
   const dislike = () => {
     axios
-      .post("http://localhost:3333/api/gamess/rate", {
+      .post("http://localhost:3333/api/games/rate", {
         userId: userData.id,
         gameId: id,
         rating: "dislike",

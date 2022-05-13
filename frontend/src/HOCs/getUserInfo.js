@@ -9,7 +9,7 @@ const GetUserInfo = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3333/api/userr/auth", {
+      .get("http://localhost:3333/api/user/auth", {
         headers: {
           "access-token": token,
         },

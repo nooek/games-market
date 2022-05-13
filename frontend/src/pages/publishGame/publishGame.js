@@ -19,7 +19,7 @@ const PublishGame = () => {
   const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/dl6nr4es9/upload";
 
   const getDevId = async () => {
-    const res = await axios.get(`http://localhost:3333/api/devv/${userData.id}`);
+    const res = await axios.get(`http://localhost:3333/api/dev/${userData.id}`);
     return res.data.dev;
   };
 
@@ -27,7 +27,7 @@ const PublishGame = () => {
     const { id } = await getDevId();
     const files = await uploadFiles();
     axios
-      .post("http://localhost:3333/api/gamess", {
+      .post("http://localhost:3333/api/games", {
         name: name,
         desc: desc,
         devId: id,

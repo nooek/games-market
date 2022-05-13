@@ -12,7 +12,7 @@ const Login = () => {
   const { setUserData } = useUserData()
 
   const login = () => {
-    axios.post(`http://localhost:3333/api/userr/login`, {
+    axios.post(`http://localhost:3333/api/user/login`, {
       email: email,
       password: password
     })

@@ -11,23 +11,21 @@ const Game = () => {
   const [played, setPlayed] = useState(false);
   const { id } = useParams();
   const { userData } = useUserData();
-  console.log(id)
 
   useEffect(() => {
-    axios.get(`http://localhost:3333/api/gamess/get-game/${id}`).then((res) => {
-      console.log(res)
+    axios.get(`http://localhost:3333/api/games/get-game/${id}`).then((res) => {
       setGame(res.data[0][0]);
     });
   }, [id]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3333/api/gamess/check-played/${userData.id}/${id}`).then((res) => {
+    axios.get(`http://localhost:3333/api/games/check-played/${userData.id}/${id}`).then((res) => {
       if (res.data.played) setPlayed(true);
     });
   }, [id, userData.id]);
 
   const downloadGame = () => {
-    axios.post(`http://localhost:3333/api/gamess/play`, {
+    axios.post(`http://localhost:3333/api/games/play`, {
       userId: userData.id,
       gameId: id,
     });

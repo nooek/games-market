@@ -9,7 +9,7 @@ const ChangeEmail = () => {
 
   const changeEmail = () => {
     console.log(userData)
-    axios.patch("http://localhost:3333/api/userr/changeemail", {
+    axios.patch("http://localhost:3333/api/user/changeemail", {
       user_id: userData.id,
       newEmail: newEmail 
     }).then(res => console.log(res)).catch(err => console.log(err))

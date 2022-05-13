@@ -10,7 +10,7 @@ const GameComments = ({ id, userData }) => {
   const [comment, setComment] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:3333/api/commentss/${id}`).then((res) => {
+    axios.get(`http://localhost:3333/api/comments/${id}`).then((res) => {
       console.log(res)
       if (!res.message) {
         setComments(res.data[0]);
@@ -22,7 +22,7 @@ const GameComments = ({ id, userData }) => {
   }, [id]);
 
   const postComment = () => {
-    axios.post("http://localhost:3333/api/commentss", {
+    axios.post("http://localhost:3333/api/comments", {
       comment: comment,
       gameId: id,
       userId: userData.id,
