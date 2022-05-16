@@ -1,14 +1,16 @@
 module.exports = class ChangeUsernameUsecase {
-  constructor(userDb) {
+  constructor(userDb, MissingParamError, InvalidParamError) {
     this.userDb = userDb;
+    this.MissingParamError = MissingParamError;
+    this.InvalidParamError = InvalidParamError;
   }
 
   async change(user) {
-    if (!user.newUsername) throw new Error("Please provide the new username");
-    if (!user.user_id) throw new Error("The user id is required")
+    if (!user.newUsername) throw new this.MissingParamError("New Username", "You need to provide the new username");
+    if (!user.user_id) throw new this.MissingParamError("UserId", "An error occurred, please try again later");
 
-    if (user.newUsername.length < 2) {
-      throw new Error("Username must be at least 2 characters long.");
+    if (user.newUsername.length < 3) {
+      throw new this.InvalidParamError("Username", "The name must be longer than 3 characters")    
     }
 
     return await this.userDb.changeUsername({

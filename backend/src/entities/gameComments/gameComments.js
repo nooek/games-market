@@ -1,12 +1,14 @@
 module.exports = class GameComments {
-  constructor(idGen) {
+  constructor(idGen, InvalidParamError, MissingParamError) {
     this.idGen = idGen;
+    this.InvalidParamError = InvalidParamError;
+    this.MissingParamError = MissingParamError;
   }
 
   validate(comment) {
-    if (!comment.comment) throw new Error("The comment must has at least 1 character")
-    if (!comment.gameId) throw new Error("GameId is required")
-    if (!comment.userId) throw new Error("UserId is required")
+    if (!comment.comment) throw new this.InvalidParamError("Comment", "The comment must has at least 1 character")
+    if (!comment.gameId) throw new this.MissingParamError("GameId", "An error occurred, please try again later")
+    if (!comment.userId) throw new this.MissingParamError("UserId", "An error occurred, please try again later")
 
     return {
       getCommentId: () => this.idGen(),

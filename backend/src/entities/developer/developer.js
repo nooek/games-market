@@ -1,10 +1,11 @@
 module.exports = class DeveloperEntity {
-  constructor(idGen) {
-    this.idGen = idGen
+  constructor(idGen, MissingParamError) {
+    this.idGen = idGen;
+    this.MissingParamError = MissingParamError;
   }
 
   validate(developer) {
-    if (!developer.userId) throw new Error("User Id is required")
+    if (!developer.userId) throw new this.MissingParamError("UserId", "An error occurred, please try again later")
 
     return {
       getId: () => this.idGen(),

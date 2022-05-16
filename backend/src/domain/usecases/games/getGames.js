@@ -1,10 +1,11 @@
 module.exports = class GetGamesUsecase {
-  constructor(gameDb) {
-    this.gameDb = gameDb
+  constructor(gameDb, MissingParamError) {
+    this.gameDb = gameDb;
+    this.MissingParamError = MissingParamError;
   }
 
   async getById(id) {
-    if (!id) throw new Error('id is required')
+    if (!id) throw new this.MissingParamError("GameId", "An error occurred, please try again later")
     return await this.gameDb.getById(id)
   }
 

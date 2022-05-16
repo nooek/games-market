@@ -1,14 +1,15 @@
 module.exports = class ChangeEmailUsecase {
-  constructor(userDb, isEmailValid) {
+  constructor(userDb, isEmailValid, MissingParamError, InvalidParamError) {
     this.userDb = userDb;
     this.isEmailValid = isEmailValid;
+    this.MissingParamError = MissingParamError;
+    this.InvalidParamError = InvalidParamError;
   }
 
   async change(user) {
-    console.log(user)
-    if (!user.newEmail) throw new Error("Please provide the new email")
-    if (!this.isEmailValid(user.newEmail)) throw new Error("Email is invalid")
-    if (!user.user_id) throw new Error("The user id is required")
+    if (!user.newEmail) throw new this.MissingParamError("New Email", "You need to provide the new username")
+    if (!this.isEmailValid(user.newEmail)) throw new this.InvalidParamError("Email", "The email provided is invalid");
+    if (!user.user_id) throw new this.MissingParamError("UserId", "An error occurred, please try again later");
 
     return await this.userDb.changeEmail({
       user_id: user.user_id,

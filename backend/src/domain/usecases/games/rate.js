@@ -1,13 +1,14 @@
 module.exports = class RateGameUsecase {
-  constructor(gameDb, generateId) {
+  constructor(gameDb, generateId, MissingParamError) {
     this.gameDb = gameDb;
-    this.generateId = generateId
+    this.generateId = generateId;
+    this.MissingParamError = MissingParamError;
   }
 
   async rate(info) {
-    if (!info.userId) throw new Error("userId is required");
-    if (!info.gameId) throw new Error("gameId is required");
-    if (!info.rating) throw new Error("rating is required");
+    if (!info.userId) throw new this.MissingParamError("UserId", "An error occurred, please try again later");
+    if (!info.gameId) throw new this.MissingParamError("GameId", "An error occurred, please try again later")
+    if (!info.rating) throw new this.MissingParamError("Rating", "An error occurred, please try again later");
     let changedRating = false
 
     const alreadyRated = await this.gameDb.findRating(info);
