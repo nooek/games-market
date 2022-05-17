@@ -1,24 +1,17 @@
 module.exports = class ChangeUsernameController {
-  constructor(changeUsernameUsecase) {
+  constructor(changeUsernameUsecase, makeHttpResponse, makeHttpErrorResponse) {
     this.changeUsernameUsecase = changeUsernameUsecase;
+    this.makeHttpResponse = makeHttpResponse;
+    this.makeHttpErrorResponse = makeHttpErrorResponse;
   }
 
   async returnHttpResponse(httpRequest) {
     try {
       const { body } = httpRequest;
       
-      const changedUsername = await this.changeUsernameUsecase.change(body)
-      return {
-        body: changedUsername,
-        statusCode: 200
-      }
+      return this.makeHttpResponse(await this.changeUsernameUsecase.change(body))
     }catch(e) {
-      return {
-        statusCode: 400,
-        body: {
-          error: e.message
-        }
-      }
+      return this.makeHttpErrorResponse(e)
     }
   }
 }
