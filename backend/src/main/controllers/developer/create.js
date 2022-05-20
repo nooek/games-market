@@ -1,6 +1,7 @@
 module.exports = class CreateDevController {
-  constructor(createDevUsecase) {
+  constructor(createDevUsecase, MakeHttpResponse) {
     this.createDevUsecase = createDevUsecase;
+    this.MakeHttpResponse = MakeHttpResponse;
   }
 
   async returnHttpResponse(httpRequest) {
@@ -9,18 +10,9 @@ module.exports = class CreateDevController {
 
       const dev = await this.createDevUsecase.create(body);
 
-      return {
-        body: dev,
-        statusCode: 200,
-      };
+      return new this.MakeHttpResponse().make(dev)
     } catch (e) {
-      console.log(e);
-      return {
-        statusCode: 400,
-        body: {
-          error: e.message,
-        },
-      };
+      return new this.MakeHttpResponse().makeError(e)
     }
   }
 };

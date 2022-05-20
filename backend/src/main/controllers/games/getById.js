@@ -1,6 +1,7 @@
 module.exports = class GetByIdController {
-  constructor(getGamesUsecase) {
+  constructor(getGamesUsecase, MakeHttpResponse) {
     this.getGamesUsecase = getGamesUsecase;
+    this.MakeHttpResponse = MakeHttpResponse;
   }
 
   async returnHttpResponse(httpRequest) {
@@ -8,18 +9,9 @@ module.exports = class GetByIdController {
       const { params } = httpRequest;
 
       const game = await this.getGamesUsecase.getById(params.id);
-      return {
-        statusCode: 200,
-        body: game,
-      };
+      return new this.MakeHttpResponse().make(game)
     } catch (e) {
-        console.log(e)
-      return {
-        statusCode: 400,
-        body: {
-          error: e.message,
-        },
-      };
+      return new this.MakeHttpResponse().makeError(e)
     }
   }
 };

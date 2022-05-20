@@ -7,6 +7,7 @@ const {
   filterGamesUsecase,
   getUserRatingUsecase
 } = require("../../../domain/usecases/games/index")
+const MakeHttpResponse = require("../factories/makeHttpResponse")
 const CreateGameController = require("./create")
 const PlayGameController = require("./play")
 const RateGameController = require("./rate")
@@ -17,15 +18,15 @@ const BestRatedGamesController = require("./bestRatedGames")
 const FilterGamesController = require("./filter")
 const GetUserRatingController = require("./getUserRating")
 
-const createGameController = new CreateGameController(createGameUsecase)
-const playGameController = new PlayGameController(playGameUsecase)
-const rateGameController = new RateGameController(rateGameUsecase)
-const checkPlayedController = new CheckPlayedController(checkPlayedUsecase)
-const getByIdController = new GetByIdController(getGamesUsecase)
-const freeGamesController = new FreeGamesController(getGamesUsecase)
-const bestRatedGamesController = new BestRatedGamesController(getGamesUsecase)
-const filterGamesController = new FilterGamesController(filterGamesUsecase)
-const getUserRatingController = new GetUserRatingController(getUserRatingUsecase)
+const createGameController = new CreateGameController(createGameUsecase, MakeHttpResponse)
+const playGameController = new PlayGameController(playGameUsecase, MakeHttpResponse)
+const rateGameController = new RateGameController(rateGameUsecase, MakeHttpResponse)
+const checkPlayedController = new CheckPlayedController(checkPlayedUsecase, MakeHttpResponse)
+const getByIdController = new GetByIdController(getGamesUsecase, MakeHttpResponse)
+const freeGamesController = new FreeGamesController(getGamesUsecase, MakeHttpResponse)
+const bestRatedGamesController = new BestRatedGamesController(getGamesUsecase, MakeHttpResponse)
+const filterGamesController = new FilterGamesController(filterGamesUsecase, MakeHttpResponse)
+const getUserRatingController = new GetUserRatingController(getUserRatingUsecase, MakeHttpResponse)
 
 module.exports = { 
   createGameController, 

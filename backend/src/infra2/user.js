@@ -1,14 +1,14 @@
 const { user } = require("../../models")
 
 module.exports = class InfraUser {
-  async register(user) {
+  async register(userData) {
     const register = await user.create({
-      id: user.id,
-      username: user.username,
-      firstname: user.firstname,
-      lastname: user.lastname,
-      email: user.email,
-      password: user.password,
+      id: userData.id,
+      username: userData.username,
+      firstname: userData.firstname,
+      lastname: userData.lastname,
+      email: userData.email,
+      password: userData.password,
     });
     return { dbResponse: register, ...user }
   }

@@ -1,6 +1,7 @@
 module.exports = class FilterGamesController {
-  constructor(filterGamesUsecase) {
+  constructor(filterGamesUsecase, MakeHttpResponse) {
     this.filterGamesUsecase = filterGamesUsecase;
+    this.MakeHttpResponse = MakeHttpResponse;
   }
 
   async returnHttpResponse(httpRequest) {
@@ -9,18 +10,10 @@ module.exports = class FilterGamesController {
 
       const filteredGames = await this.filterGamesUsecase.filter(body);
 
-      return {
-        statusCode: 200,
-        body: filteredGames,
-      };
+      return new this.MakeHttpResponse().make(filteredGames)
     } catch (e) {
       console.log(e);
-      return {
-        statusCode: 400,
-        body: {
-          error: e.message,
-        },
-      };
+      return new this.MakeHttpResponse().makeError(e)
     }
   }
 };

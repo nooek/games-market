@@ -11,7 +11,7 @@ const ChangeEmailUsecase = require("./changeEmail")
 const ChangePasswordUsecase = require("./changePassword")
 
 const registerUsecase = new RegisterUsecase(Encrypter, UserDb)
-const loginUsecase = new LoginUsecase(Encrypter, TokenGenerator, UserDb)
+const loginUsecase = new LoginUsecase(Encrypter, TokenGenerator, UserDb, InvalidParamError)
 const authUsecase = new AuthUsecase(new UserDb())
 const changeUsernameUsecase = new ChangeUsernameUsecase(new UserDb(), MissingParamError, InvalidParamError)
 const changeEmailUsecase = new ChangeEmailUsecase(new UserDb(), emailValidator, MissingParamError, InvalidParamError)

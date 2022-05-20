@@ -1,6 +1,7 @@
 module.exports = class RegisterController {
-  constructor(registerUsecase) {
+  constructor(registerUsecase, MakeHttpResponse) {
     this.registerUsecase = registerUsecase;
+    this.MakeHttpResponse = MakeHttpResponse
   }
 
   async returnHttpResponse(httpRequest) {
@@ -8,18 +9,10 @@ module.exports = class RegisterController {
       const { body } = httpRequest;
 
       const registered = await this.registerUsecase.register(body.userData);
-      return {
-        statusCode: 200,
-        body: { registered },
-      };
+      return new this.MakeHttpResponse().make(registered)
     } catch (e) {
       console.log(e);
-      return {
-        statusCode: 400,
-        body: {
-          error: e.message,
-        },
-      };
+      return new this.MakeHttpResponse().makeError(e)
     }
   }
 };

@@ -1,23 +1,16 @@
 module.exports = class BestRatedGamesController {
-    constructor(getGamesUsecase) {
+    constructor(getGamesUsecase, MakeHttpResponse) {
       this.getGamesUsecase = getGamesUsecase;
+      this.MakeHttpResponse = MakeHttpResponse;
     }
   
     async returnHttpResponse() {
       try {
         const game = await this.getGamesUsecase.bestRatedGames();
-        return {
-          statusCode: 200,
-          body: game,
-        };
+        return new this.MakeHttpResponse().make(game)
       } catch (e) {
         console.log(e);
-        return {
-          statusCode: 400,
-          body: {
-            error: e.message,
-          },
-        };
+        return new this.MakeHttpResponse().makeError(e)
       }
     }
   };

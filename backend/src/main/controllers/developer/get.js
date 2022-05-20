@@ -1,28 +1,17 @@
 module.exports = class GetDevController {
-  constructor(getDevUsecase) {
+  constructor(getDevUsecase, MakeHttpResponse) {
     this.getDevUsecase = getDevUsecase;
+    this.MakeHttpResponse = MakeHttpResponse;
   }
 
   async returnHttpResponse(httpRequest) {
     try {
       const { params } = httpRequest;
-
-      console.log(params)
-
       const dev = await this.getDevUsecase.get(params);
 
-      return {
-        body: dev,
-        statusCode: 200,
-      };
+      return new this.MakeHttpResponse().make(dev)
     } catch (e) {
-      console.log(e);
-      return {
-        statusCode: 400,
-        body: {
-          error: e.message,
-        },
-      };
+      return new this.MakeHttpResponse().makeError(e)
     }
   }
 };

@@ -15,6 +15,8 @@ module.exports = class AuthController {
         error: error,
       });
 
+      console.log(response)
+
       return {
         body: response, 
         statusCode: 200

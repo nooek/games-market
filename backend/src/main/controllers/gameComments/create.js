@@ -1,6 +1,7 @@
 module.exports = class CreateGameCommentController {
-  constructor(createGameUsecase) {
+  constructor(createGameUsecase, MakeHttpResponse) {
     this.createGameUsecase = createGameUsecase;
+    this.MakeHttpResponse = MakeHttpResponse;
   }
 
   async returnHttpResponse(httpRequest) {
@@ -9,18 +10,9 @@ module.exports = class CreateGameCommentController {
 
       const dev = await this.createGameUsecase.create(body);
 
-      return {
-        body: dev,
-        statusCode: 200,
-      };
+      return new this.MakeHttpResponse().make(dev)
     } catch (e) {
-      console.log(e);
-      return {
-        statusCode: 400,
-        body: {
-          error: e.message,
-        },
-      };
+      return new this.MakeHttpResponse().makeError(e)
     }
   }
 };

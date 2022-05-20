@@ -1,6 +1,7 @@
 module.exports = class GetCommentsByGameController {
-  constructor(getCommentsByGameUsecase) {
+  constructor(getCommentsByGameUsecase, MakeHttpResponse) {
     this.getCommentsByGameUsecase = getCommentsByGameUsecase;
+    this.MakeHttpResponse = MakeHttpResponse;
   }
 
   async returnHttpResponse(httpRequest) {
@@ -9,18 +10,9 @@ module.exports = class GetCommentsByGameController {
 
       const comment = await this.getCommentsByGameUsecase.get(params);
 
-      return {
-        body: comment,
-        statusCode: 200,
-      };
+      return new this.MakeHttpResponse().make(comment)
     } catch (e) {
-      console.log(e);
-      return {
-        statusCode: 400,
-        body: {
-          error: e.message,
-        },
-      };
+      return new this.MakeHttpResponse().makeError(e)
     }
   }
 };

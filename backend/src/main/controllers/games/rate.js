@@ -1,6 +1,7 @@
 module.exports = class RateGameController {
-  constructor(rateGameUsecase) {
+  constructor(rateGameUsecase, MakeHttpResponse) {
     this.rateGameUsecase = rateGameUsecase;
+    this.MakeHttpResponse = MakeHttpResponse;
   }
 
   async returnHttpResponse(httpRequest) {
@@ -8,20 +9,11 @@ module.exports = class RateGameController {
       const { body } = httpRequest;
 
       const rated = await this.rateGameUsecase.rate(body);
-      console.log(rated)
 
-      return {
-        statusCode: 200,
-        body: { rated },
-      };
+      return new this.MakeHttpResponse().make(rated)
     } catch (e) {
       console.log(e);
-      return {
-        statusCode: 400,
-        body: {
-          error: e.message,
-        },
-      };
+      return new this.MakeHttpResponse().makeError(e)
     }
   }
 };

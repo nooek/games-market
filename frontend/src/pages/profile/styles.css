@@ -77,9 +77,29 @@
 }
 
 .profile-change-info-button {
-  width: 100%;
+  min-width: 100px;
+  width: auto;
   height: 60px;
   font-size: 25px;
   border: 1px solid white;
   margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.profile-my-games-button {
+  min-width: 100px;
+  width: auto;
+  height: 60px;
+  font-size: 25px;
+  border: 1px solid white;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.profile-btns-container {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: row;
 }

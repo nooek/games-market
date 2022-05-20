@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import "./gamesStyles.css";
 
 const GamesRenderer = ({ games }) => {
+  console.log(games)
   return games.slice(0, 5).map((game, index) => {
     return (
       <Link to={"/game/" + game.id} key={game.id}>

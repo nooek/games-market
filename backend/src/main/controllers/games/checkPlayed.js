@@ -1,27 +1,19 @@
 module.exports = class CheckPlayedController {
-  constructor(checkPlayedUsecase) {
+  constructor(checkPlayedUsecase, MakeHttpResponse) {
     this.checkPlayedUsecase = checkPlayedUsecase;
+    this.MakeHttpResponse = MakeHttpResponse;
   }
 
   async returnHttpResponse(httpRequest) {
     try {
       const { params } = httpRequest
-      console.log(params)
 
       const played = await this.checkPlayedUsecase.check(params);
 
-      return {
-        statusCode: 200,
-        body: played,
-      };
+      return new this.MakeHttpResponse().make(played)
     } catch (e) {
-        console.log(e)
-      return {
-        statusCode: 400,
-        body: {
-          error: e.message,
-        },
-      };
+      console.log(e)
+      return new this.MakeHttpResponse().makeError(e)
     }
   }
 };

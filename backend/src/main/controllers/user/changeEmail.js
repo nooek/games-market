@@ -1,6 +1,7 @@
 module.exports = class ChangeEmailController {
-  constructor(changeEmailUsecase) {
+  constructor(changeEmailUsecase, MakeHttpResponse) {
     this.changeEmailUsecase = changeEmailUsecase;
+    this.MakeHttpResponse = MakeHttpResponse;
   }
 
   async returnHttpResponse(httpRequest) {
@@ -8,18 +9,9 @@ module.exports = class ChangeEmailController {
       const { body } = httpRequest;
 
       const changedEmail = await this.changeEmailUsecase.change(body);
-      return {
-        body: changedEmail,
-        statusCode: 200,
-      };
-    } catch (e) {
-      console.log(e)
-      return {
-        statusCode: 400,
-        body: {
-          error: e.message,
-        },
-      };
+      return new this.MakeHttpResponse().make(changedEmail)
+    } catch(e) {
+      return new this.MakeHttpResponse().makeError(e)
     }
   }
 };

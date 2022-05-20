@@ -1,6 +1,7 @@
 module.exports = class LoginController {
-  constructor(loginUsecase) {
+  constructor(loginUsecase, MakeHttpResponse) {
     this.loginUsecase = loginUsecase;
+    this.MakeHttpResponse = MakeHttpResponse;
   }
 
   async returnHttpResponse(httpRequest) {
@@ -8,18 +9,9 @@ module.exports = class LoginController {
       const { body } = httpRequest;
 
       const logged = await this.loginUsecase.login(body);
-      return {
-        body: { logged },
-        statusCode: 200,
-      };
+      return new this.MakeHttpResponse().make(logged)
     } catch (e) {
-      console.log(e)
-      return {
-        body: {
-          error: e.message,
-        },
-        statusCode: 400,
-      };
+      return new this.MakeHttpResponse().makeError(e)
     }
   }
 };

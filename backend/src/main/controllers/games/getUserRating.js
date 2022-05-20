@@ -1,6 +1,7 @@
 module.exports = class GetUserRatingController {
-  constructor (getUserRatingUsecase) {
-    this.getUserRatingUsecase = getUserRatingUsecase
+  constructor (getUserRatingUsecase, MakeHttpResponse) {
+    this.getUserRatingUsecase = getUserRatingUsecase;
+    this.MakeHttpResponse = MakeHttpResponse;
   }
 
   async returnHttpResponse(httpRequest) {
@@ -9,18 +10,10 @@ module.exports = class GetUserRatingController {
   
       const userRating = await this.getUserRatingUsecase.get(params);
 
-      return {
-        statusCode: 200,
-        body: userRating,
-      };
+      return new this.MakeHttpResponse().make(userRating)
     } catch (e) {
       console.log(e);
-      return {
-        statusCode: 400,
-        body: {
-          error: e.message,
-        },
-      };
+      return new this.MakeHttpResponse().makeError(e)
     }
   }
 }

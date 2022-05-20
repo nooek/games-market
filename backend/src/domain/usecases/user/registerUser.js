@@ -11,9 +11,9 @@ module.exports = class RegisterUsecase {
     const userDb = new this.UserDb()
     let hashedPwd;
   
-    const exists = await userDb.findByEmail(user.getEmail())
+    // const exists = await userDb.findByEmail(user.getEmail())
     hashedPwd = await new this.Encrypter(user.getPassword()).encrypt()
-    if (exists.length > 0 || exists[0] !== null) throw new Error("User already exists")
+    // if (exists.length > 0 || exists[0] !== null) throw new Error("User already exists")
 
     return await userDb.register({
       id: user.getId(),
