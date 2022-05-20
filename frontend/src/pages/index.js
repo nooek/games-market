@@ -6,5 +6,6 @@ import Game from "./game/game";
 import GamesByCategory from "./gamesByCategory/gamesByCategory";
 import Profile from "./profile/profile";
 import ChangeInfo from "./changeInfo/changeInfo";
+import MyGames from "./myGames/myGames"
 
-export { Home, Register, Login, PublishGame, Game, GamesByCategory, Profile, ChangeInfo };
+export { Home, Register, Login, PublishGame, Game, GamesByCategory, Profile, ChangeInfo, MyGames };

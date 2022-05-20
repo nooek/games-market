@@ -8,7 +8,8 @@ import {
   Game,
   GamesByCategory,
   Profile,
-  ChangeInfo
+  ChangeInfo,
+  MyGames
 } from "./pages/index"
 import {
   GetUserInfo
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/profile" exact component={Profile} />
             <Route path="/games/category/:categories/:minprice/:maxprice"  exact component={GamesByCategory} />
             <Route path="/profile/changeinfo/:change" exact component={ChangeInfo} />
+            <Route path="/profile/mygames" exact component={MyGames} />
             <Route path="*" component={() => <h2 style={{color: "white"}}>Error 404 - Page Not Found</h2>} />
           </Switch>
         </Router>
