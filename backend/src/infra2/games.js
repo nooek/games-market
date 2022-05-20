@@ -75,6 +75,12 @@ module.exports = class InfraGames {
     return game;
   }
 
+  async getByDev(dev) {
+    const devGames = await games.findAll({ where: { owner: dev } })
+    console.log(devGames)
+    return devGames
+  }
+
   async getFreeGames() {
     const freeGames = await games.findAll({ where: { price: 0 } });
     return freeGames;
