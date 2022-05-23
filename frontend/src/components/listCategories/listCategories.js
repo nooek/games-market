@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import "./styles.css"
 
-const ListCategories = ({ activeCategories, setActiveCategories }) => {
+const ListCategories = ({ activeCategories, setActiveCategories, gameCategories }) => {
+  useEffect(() => {
+    if (gameCategories) {
+      setActiveCategories(gameCategories.split(","))
+    }
+  }, [setActiveCategories, gameCategories])
+
+  useEffect(() => {
+    activeCategories.forEach(category => {
+      document.getElementById(category).style.backgroundColor = "rgb(199, 199, 199)"
+    })
+  }, [activeCategories, setActiveCategories])
+
   const changeColor = (e) => {
     if (!activeCategories.includes(e.target.id)) {
       setActiveCategories([e.target.id, ...activeCategories]);
-      e.target.style.backgroundColor = "rgb(199, 199, 199)";
     } else {
       const idIndex = activeCategories.indexOf(e.target.id);
       activeCategories.splice(idIndex, 1);
       e.target.style.backgroundColor = "";
     }
-    console.log(activeCategories)
-
   };
 
   return (

@@ -13,13 +13,14 @@ import {
   NotLoggedBtns,
   NotLoggedText,
 } from "./styles.js";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useUserData } from "../../../store/userContext";
 import navbarMenu from "../../../assets/images/navbar-menu.svg";
 import userPfp from "../../../assets/images/profile.svg";
 import BecomeDevMobile from "../../becomeDevMobile/becomeDevMobile.js";
 
 const MobileMenu = () => {
+  const history = useHistory();
   const { userData } = useUserData();
   const [showMenu, setShowMenu] = useState(false);
   const [becomeDev, setBecomeDev] = useState(false);
@@ -56,7 +57,7 @@ const MobileMenu = () => {
           <FuncContainer>
             <StoreBtn onClick={() => verifyDev()}>Publish a game</StoreBtn>
             {becomeDev ? <BecomeDevMobile chooseNo={() => setBecomeDev(false)} chooseYes={() => setBecomeDev(false)} /> : null}
-            <StoreBtn>Store</StoreBtn>
+            <StoreBtn onClick={() => history.push("/games/category/any/0/9999")}>Store</StoreBtn>
           </FuncContainer>
           {redirect ? <Redirect to="publish/game" /> : null}
         </Menu>

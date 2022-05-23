@@ -1,0 +1,71 @@
+.mg-menu-container {
+  width: 250px;
+  height: 200px;
+  border: 2px solid white;
+  position: relative;
+  top: calc(100% + 45px);
+  backdrop-filter: blur(10px);
+}
+
+.mg-menu-btns-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mg-menu-btns {
+  width: 90%;
+  height: auto;
+  background: transparent;
+  color: rgb(253, 253, 253);
+  border: none;
+  font-size: 25px;
+  border-bottom: 2px solid rgb(177, 94, 94);
+  cursor: pointer;
+}
+
+.mg-delete-menu-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mg-delete-menu-text {
+  color: white;
+  font-size: 20px;
+}
+
+.mg-delete-menu-input {
+  width: 90%;
+  height: 40px;
+  border: 1px solid white;
+  background: transparent;
+  border-radius: 10px;
+  color: white;
+}
+
+.mg-delete-menu-options-container {
+  width: 100%;
+  min-height: 70px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+}
+
+.mg-delete-menu-options-btns {
+  width: 90px;
+  height: 40px;
+  color: black;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}

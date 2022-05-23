@@ -9,8 +9,9 @@ import {
   GamesByCategory,
   Profile,
   ChangeInfo,
-  MyGames
+  MyGames,
 } from "./pages/index"
+
 import {
   GetUserInfo
 } from "./HOCs"

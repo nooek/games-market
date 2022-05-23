@@ -27,9 +27,6 @@ module.exports = class GameEntity {
     if (data.desc.length > 200) {
       throw new this.InvalidParamError("Description", "The description must have less than 200 characters")
     }
-    if (!data.devId) {
-      throw new this.MissingParamError("DevId", "An error occurred, try again later")
-    }
     if (!data.thumbnail) throw new this.MissingParamError("Thumbnail", "Please provide the game thumbnail")
     if (!data.game) throw new this.MissingParamError("Game", "Please provide the game")
     if (!data.price) throw new this.MissingParamError("Price", "Please provide the game price")
@@ -44,7 +41,6 @@ module.exports = class GameEntity {
     return { 
       getId: () => this.idGen(),
       getDevGamesId: () => this.idGen(),
-      getDevId: () => data.devId,
       getName: () => data.name,
       getDescription: () => data.desc,
       getThumbnail: () => data.thumbnail,

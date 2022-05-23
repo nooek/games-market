@@ -19,7 +19,7 @@ const GetUserInfo = ({ children }) => {
         setLoading(false);
         if (res.data) {
           if (res.data.user) {
-            setUserData(res.data.user);
+            setUserData(res.data.user[0]);
           }
         }
       })

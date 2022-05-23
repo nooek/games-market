@@ -10,12 +10,11 @@ const FreeGames = () => {
       .then((res) => {
         console.log(res)
         if (res.data) {
-          setGames(res.data)
+          setGames(res.data[0])
         }
       })
   }, [])
 
-  console.log(games)
 
   return <GameCategory category="Free Games" gamesData={games} />
 }

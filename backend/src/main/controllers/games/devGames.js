@@ -9,7 +9,6 @@ module.exports = class GetByDevController {
       const { params } = httpRequest;
 
       const devGames = await this.getGamesUsecase.getByDev(params.dev);
-      console.log(devGames)
       return new this.MakeHttpResponse().make(devGames);
     }catch(e) {
       console.log(e)

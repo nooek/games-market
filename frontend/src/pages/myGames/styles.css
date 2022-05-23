@@ -1,15 +1,22 @@
-.gc-container {
+.my-games-container {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.gc-games-container {
+.my-games-title {
+  text-align: center;
+  color: white;
+  font-size: 35px;
+}
+
+.my-games-showcase {
   width: 100%;
   height: auto;
-  display: column;
 }
 
-.gc-game-container {
+.my-games-container {
   width: 100%;
   height: 85px;
   display: flex;
@@ -20,7 +27,7 @@
   border-bottom: 1px solid white;
 }
 
-.gc-game-info-container {
+.my-games-info-container {
   width: auto;
   height: 100%;
   display: inline-flex;
@@ -29,25 +36,25 @@
   justify-content: space-between;
 }
 
-.gc-game-thumbnail {
+.my-games-thumbnail {
   width: auto;
-  height: 100%;
+  height: 10%;
 }
 
-.gc-game-thumbnail-container {
+.my-games-thumbnail-container {
   height: 100%;
   width: auto;
   position: absolute;
 }
 
-.gc-game-price-name-container {
+.my-games-price-name-container {
   height: 100%;
   width: auto;
   position: relative;
   margin-left: 10px;
 }
 
-.gc-game-name {
+.my-games-name {
   font-size: 25px;
   color: white;
   margin-bottom: 0;
@@ -55,7 +62,7 @@
   bottom: 17px;
 }
 
-.gc-game-price {
+.my-games-price {
   font-size: 20px;
   color: white;
   margin-top: 0;
@@ -63,7 +70,7 @@
   bottom: 2px;
 }
 
-.gc-game-rating-container {
+.my-games-rating-container {
   width: auto;
   height: 100%;
   position: relative;
@@ -75,17 +82,17 @@
 }
 
 @media(max-width: 500px) {
-  .gc-game-rating-container {
+  .my-games-rating-container {
     display: none;
   }
 }
 
-.gc-like-icon {
+.my-games-like-icon {
   width: 45px;
   margin-left: 10px;
 }
 
-.gc-like-counter {
+.my-games-like-counter {
   position: relative;
   left: 10px;
   font-size: 25px;
@@ -93,12 +100,12 @@
   font-weight: bold;
 }
 
-.gc-dislike-icon {
+.my-games-dislike-icon {
   width: 45px;
   margin-left: 30px;
 }
 
-.gc-dislike-counter {
+.my-games-dislike-counter {
   position: relative;
   left: 10px;
   font-size: 25px;
@@ -106,14 +113,10 @@
   font-weight: bold;
 }
 
-.gc-download-btn {
-  width: 180px;
-  height: 60%;
-  border: 2px solid black;
-  background-image: linear-gradient(-100deg, rgb(27, 117, 7), rgb(68, 223, 29));
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
-  margin-right: 10px;
+.my-games-options {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  font-style: bold;
+  right: 40px;
 }

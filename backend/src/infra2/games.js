@@ -70,19 +70,31 @@ module.exports = class InfraGames {
         ON g.id = rg.game_id
         WHERE (g.price BETWEEN 0 AND 9999) AND (g.category LIKE "%") AND g.id = "${id}"
         GROUP BY g.id
-        ORDER BY COUNT(rg.rating = "like") DESC;`
-    const game = await games.sequelize.query(query)
+        ORDER BY COUNT(rg.rating = "like") DESC;`;
+    const game = await games.sequelize.query(query);
     return game;
   }
 
   async getByDev(dev) {
-    const devGames = await games.findAll({ where: { owner: dev } })
-    console.log(devGames)
-    return devGames
+    const query = `
+    SELECT g.*,
+    SUM(IF(rg.rating='like', 1, 0)) AS likes,
+    SUM(IF(rg.rating='dislike', 1, 0)) AS dislikes FROM games AS g
+    LEFT JOIN rated_games AS rg
+    ON g.id = rg.game_id AND g.owner = "${dev}"
+    WHERE g.owner = "${dev}"
+    ORDER BY g.id;
+  `;
+    const devGames = await games.sequelize.query(query);
+    return devGames;
   }
 
   async getFreeGames() {
-    const freeGames = await games.findAll({ where: { price: 0 } });
+    const query = `
+      SELECT * FROM games WHERE price = 0;
+    `
+    const freeGames = await games.sequelize.query(query);
+    console.log(freeGames)
     return freeGames;
   }
 
@@ -114,5 +126,12 @@ module.exports = class InfraGames {
   `;
     const gamesFiltered = await games.sequelize.query(query);
     return gamesFiltered;
+  }
+
+  async delete(gameId) {
+    const gameDeleted = await games.destroy({
+      where: { id: gameId }
+    })
+    return gameDeleted
   }
 };

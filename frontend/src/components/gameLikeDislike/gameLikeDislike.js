@@ -7,7 +7,7 @@ const GameLikeDislike = ({ userData, played, id }) => {
   const [rating, setRating] = useState("");
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
-  console.log(userData)  
+
   useEffect(() => {
     axios.get(`http://localhost:3333/api/games/get-game/${id}`).then((res) => {
       setLikes(parseInt(res.data[0][0].likes));
@@ -20,7 +20,6 @@ const GameLikeDislike = ({ userData, played, id }) => {
       if (!res.data.message) {
         setRating(res.data.rating)
       }
-      console.log(res)
     });
   }, [id, userData.id]);
 
@@ -38,9 +37,10 @@ const GameLikeDislike = ({ userData, played, id }) => {
         rating: "like",
       })
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data)
         setRating("like");
-        if (res.data.rated.changedRating) {
+        if (res.data.changedRating) {
+          console.log("like")
           setLikes(likes + 1);
           setDislikes(dislikes - 1);
         } else {
@@ -60,10 +60,9 @@ const GameLikeDislike = ({ userData, played, id }) => {
         rating: "dislike",
       })
       .then((res) => {
-        console.log(res.data);
-
         setRating("dislike");
-        if (res.data.rated.changedRating) {
+        console.log(res.data)
+        if (res.data.changedRating) {
           setLikes(likes - 1);
           setDislikes(dislikes + 1);
         } else {
@@ -74,6 +73,8 @@ const GameLikeDislike = ({ userData, played, id }) => {
         if (err.response.message) console.log(err.response);
       });
   };
+
+  console.log(rating)
 
   return (
     <div className="game-rating-container">

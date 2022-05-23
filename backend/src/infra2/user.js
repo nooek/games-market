@@ -20,7 +20,7 @@ module.exports = class InfraUser {
 
   async findById(id) {
     const userFound = await user.findOne({ where: { id: id }})
-    return userFound
+    return [userFound]
   }
 
   async changeUsername(data) {

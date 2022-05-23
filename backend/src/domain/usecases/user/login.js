@@ -16,7 +16,6 @@ module.exports = class LoginUsecase {
     if (exists.length <= 0 || exists[0] === null) throw new Error("User not found")
     const isPwdEqual = await new this.Encrypter(user.getPassword()).compare(exists[0].dataValues.password)
     if (!isPwdEqual) {
-      console.log("da")
       throw new this.InvalidParamError("Credentials", "The credentials does not match");
     }
 

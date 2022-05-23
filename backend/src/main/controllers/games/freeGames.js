@@ -7,6 +7,7 @@ module.exports = class FreeGamesController {
   async returnHttpResponse() {
     try {
       const game = await this.getGamesUsecase.freeGames();
+      console.log(game)
       return new this.MakeHttpResponse().make(game)
     } catch (e) {
       console.log(e);

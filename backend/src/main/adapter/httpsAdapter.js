@@ -12,7 +12,6 @@ module.exports = class HttpsAdapter {
       };
       this.controller.returnHttpResponse(httpRequest)
         .then((httpResponse) => {
-          console.log(httpResponse)
           res.status(httpResponse.statusCode).send(httpResponse.body);
         })
         .catch((e) => res.status(500).send({ error: "An error occurred." }))

@@ -5,7 +5,8 @@ const {
   checkPlayedUsecase,
   getGamesUsecase,
   filterGamesUsecase,
-  getUserRatingUsecase
+  getUserRatingUsecase,
+  deleteUsecase
 } = require("../../../domain/usecases/games/index")
 const MakeHttpResponse = require("../factories/makeHttpResponse")
 const CreateGameController = require("./create")
@@ -18,6 +19,7 @@ const FreeGamesController = require("./freeGames")
 const BestRatedGamesController = require("./bestRatedGames")
 const FilterGamesController = require("./filter")
 const GetUserRatingController = require("./getUserRating")
+const DeleteController = require("./delete")
 
 const createGameController = new CreateGameController(createGameUsecase, MakeHttpResponse)
 const playGameController = new PlayGameController(playGameUsecase, MakeHttpResponse)
@@ -29,6 +31,7 @@ const freeGamesController = new FreeGamesController(getGamesUsecase, MakeHttpRes
 const bestRatedGamesController = new BestRatedGamesController(getGamesUsecase, MakeHttpResponse)
 const filterGamesController = new FilterGamesController(filterGamesUsecase, MakeHttpResponse)
 const getUserRatingController = new GetUserRatingController(getUserRatingUsecase, MakeHttpResponse)
+const deleteController = new DeleteController(deleteUsecase, MakeHttpResponse)
 
 module.exports = { 
   createGameController, 
@@ -40,5 +43,6 @@ module.exports = {
   bestRatedGamesController,
   filterGamesController,
   getUserRatingController,
-  getByDevController
+  getByDevController,
+  deleteController
 }

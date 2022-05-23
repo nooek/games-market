@@ -13,7 +13,7 @@ const PublishGame = () => {
   const [image, setImage] = useState("");
   const [game, setGame] = useState("");
   const [preview, setPreview] = useState("");
-  const [activeCategories, setActiveCategories] = useState("");
+  const [activeCategories, setActiveCategories] = useState([]);
   const { userData } = useUserData();
   
   const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/dl6nr4es9/upload";
@@ -101,7 +101,7 @@ const PublishGame = () => {
   return (
     <div className="publish-game-container">
       <div className="forms-container">
-        <div className="game-thumbnail-container">
+        <div className="game-thumbnaill-container">
           <h2 className="thumbnail-text">Game Thumbnail</h2>
           <input
             type="file"
