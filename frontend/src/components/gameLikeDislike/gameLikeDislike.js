@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./styles.css"
 import likeBtn from "../../assets/images/smile.png";
 import dislikeBtn from "../../assets/images/sad.png";
 

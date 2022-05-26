@@ -35,6 +35,7 @@ const GameComments = ({ id, userData }) => {
       },
       ...comments,
     ]);
+    setComment("")
   };
 
   return (
@@ -44,6 +45,7 @@ const GameComments = ({ id, userData }) => {
         <input
           className="gcomments-write-input"
           placeholder="Write your comment here"
+          value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
         <button className="gcomments-button-send-comment" onClick={() => postComment()}>

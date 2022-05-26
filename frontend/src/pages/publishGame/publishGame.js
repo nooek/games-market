@@ -33,7 +33,7 @@ const PublishGame = () => {
         devId: id,
         thumbnail: files.thumbnail,
         game: files.game,
-        price: price || 0,
+        price: price ? price : "0",
         owner: userData.email,
         categories: activeCategories
       })
@@ -42,13 +42,6 @@ const PublishGame = () => {
         if (res.data.message) {
           setMessage(res.data.message);
         }
-        setName("")
-        setDesc("")
-        setPrice(0)
-        setImage("")
-        setPreview("")
-        setGame("")
-        setActiveCategories("")
       })
       .catch((err) => {
         if (err.response) {

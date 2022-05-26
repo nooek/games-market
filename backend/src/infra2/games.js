@@ -82,8 +82,7 @@ module.exports = class InfraGames {
     SUM(IF(rg.rating='dislike', 1, 0)) AS dislikes FROM games AS g
     LEFT JOIN rated_games AS rg
     ON g.id = rg.game_id AND g.owner = "${dev}"
-    WHERE g.owner = "${dev}"
-    ORDER BY g.id;
+    GROUP BY g.id;
   `;
     const devGames = await games.sequelize.query(query);
     return devGames;

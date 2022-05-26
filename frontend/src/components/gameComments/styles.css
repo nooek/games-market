@@ -11,6 +11,7 @@
   color: white;
   font-style: "Roboto";
   text-align: center;
+  word-break: break-word;
 }
 
 .gcomments-write-container {
@@ -20,7 +21,7 @@
 }
 
 .gcomments-write-input {
-  width: 86%;
+  width: 80%;
   height: 50px;
   margin-left: 10px;
   border: 2px solid white;
@@ -33,13 +34,19 @@
 }
 
 .gcomments-button-send-comment {
-  width: 12%;
+  width: 20%;
   height: 50px;
   margin-left: 1%;
 }
 
 .gcomments-button-send-comment:focus {
   outline: none;
+}
+
+@media(max-width: 400px) {
+  .gcomments-title {
+    font-size: 10vw;
+  }
 }
 
 .gcomments-cards-container {

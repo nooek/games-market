@@ -19,6 +19,7 @@
   flex-direction: row;
   align-items: center;
   border-bottom: 2px solid white;
+  word-break: break-word;
 }
 
 @media (max-width: 850px) {
@@ -40,8 +41,9 @@
 }
 
 .gamepage-thumb {
-  width: 100%;
+  width: 95%;
   height: auto;
+  object-fit: cover;
   margin-left: 10px;
 }
 
@@ -92,55 +94,10 @@
 
 @media(max-width: 300px) {
   .download-game-btn {
-    width: 95%
+    width: 95%;
   }
 }
 
 .download-game-btn:hover {
   transform: scale(0.95);
-}
-
-.game-rating-container {
-  width: 350px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.game-rating-text {
-  font-size: 25px;
-  color: white;
-}
-
-.game-rating-emojis-container {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.rating-emoji {
-  width: 100px;
-  cursor: pointer
-}
-
-.gr-emoji-container {
-  width: 50%;
-  height: 180px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.like-emoji {
-  color: green;
-}
-
-.dislike-emoji {
-  color: red;
 }

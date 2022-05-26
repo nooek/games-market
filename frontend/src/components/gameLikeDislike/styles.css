@@ -1,0 +1,62 @@
+.game-rating-container {
+  width: 350px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.game-rating-text {
+  font-size: 25px;
+  color: white;
+}
+
+.game-rating-emojis-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.rating-emoji {
+  width: 100px;
+  cursor: pointer;
+}
+
+.gr-emoji-container {
+  width: 50%;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.like-emoji {
+  color: green;
+}
+
+.dislike-emoji {
+  color: red;
+}
+
+@media (max-width: 420px) {
+  .gr-emoji-container {
+    width: 40%;
+  }
+
+  .like-emoji {
+    width: 70%;
+  }
+
+  .dislike-emoji {
+    width: 70%;
+  }
+
+  .game-rating-container {
+    width: 100%;
+  }
+}

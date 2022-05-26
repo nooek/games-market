@@ -7,12 +7,12 @@ module.exports = class CreateGameUsecase {
 
   async create(gameInfo) {
     const game = gamesEntity.validate(gameInfo)
-    if (!data.devId) {
+    if (!gameInfo.devId) {
       throw new this.MissingParamError("DevId", "An error occurred, try again later")
     }
     return await this.gameDb.createGame({
       id: game.getId(),
-      devId: data.devId,
+      devId: gameInfo.devId,
       devGamesId: game.getDevGamesId(),
       name: game.getName(),
       description: game.getDescription(),
