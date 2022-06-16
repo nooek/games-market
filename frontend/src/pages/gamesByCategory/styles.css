@@ -16,16 +16,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5px;
-  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  border-bottom: 0.5px solid white;
 }
 
 .gc-game-info-container {
   width: auto;
-  height: 123%;
+  height: 100%;
   display: inline-flex;
-  position: relative;
-  bottom: 12%;
   align-items: center;
   justify-content: space-between;
 }
@@ -33,6 +31,10 @@
 .gc-game-thumbnail-container {
   width: 120px;
   height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gc-game-thumbnail {

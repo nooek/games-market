@@ -47,7 +47,6 @@ const GamesByCategory = ({ match }) => {
           return (
             <Link to={"/game/" + game.id} key={game.id} style={{ textDecoration: "none" }}>
               <div className="gc-game-container" key={game.id}>
-                
                 <div className="gc-game-info-container">
                 <div className="gc-game-thumbnail-container">
                   <img className="gc-game-thumbnail" src={game.thumbnail} alt="thumbnail" />

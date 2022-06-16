@@ -11,24 +11,21 @@ const Login = () => {
   const [redirect, setRedirect] = useState(false)
   const { setUserData } = useUserData()
 
-  const login = () => {
-    axios.post(`http://localhost:3333/api/user/login`, {
+  const login = async () => {
+    const response = await axios.post(`http://localhost:3333/api/user/login`, {
       email: email,
       password: password
     })
-      .then((res) => {
-        console.log(res)
-        if (res.data) {
-          setUserData(res.data.logged.data)
-          setRedirect(true);
-          localStorage.setItem("jwt", res.data.logged.token)
-        }
-      })
       .catch((err) => {
         if (err.response) {
           console.log(err.response)
         }
       })
+    if (response.data) {
+      await setUserData(response.data.data)
+      await localStorage.setItem("jwt", response.data.token)
+      setRedirect(true);
+    }
   }
 
   const handleKeyPress = (e) => {
@@ -52,6 +49,7 @@ const Login = () => {
           <input 
             className="info-input"
             onKeyPress={handleKeyPress}
+            type="password"
             onChange={(e) => setPassword(e.target.value)} />
         </div>
         <button className="login-btn" onClick={() => login()} >Login</button>

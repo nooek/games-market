@@ -11,6 +11,7 @@ module.exports = class LoginController {
       const logged = await this.loginUsecase.login(body);
       return new this.MakeHttpResponse().make(logged)
     } catch (e) {
+      console.log(e)
       return new this.MakeHttpResponse().makeError(e)
     }
   }

@@ -65,9 +65,11 @@ module.exports = class InfraGames {
 
   async getById(id) {
     const query = `SELECT g.*, SUM(IF(rg.rating = 'like', 1, 0)) as likes, 
-    SUM(IF(rg.rating ='dislike', 1, 0)) as dislikes FROM games AS g
+    SUM(IF(rg.rating ='dislike', 1, 0)) as dislikes, u.username as game_author FROM games AS g
         LEFT JOIN rated_games AS rg
         ON g.id = rg.game_id
+        LEFT JOIN user AS u
+        ON g.owner = u.email
         WHERE (g.price BETWEEN 0 AND 9999) AND (g.category LIKE "%") AND g.id = "${id}"
         GROUP BY g.id
         ORDER BY COUNT(rg.rating = "like") DESC;`;

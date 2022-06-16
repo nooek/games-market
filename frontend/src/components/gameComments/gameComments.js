@@ -6,18 +6,13 @@ const moment = require("moment");
 
 const GameComments = ({ id, userData }) => {
   const [comments, setComments] = useState([]);
-  const [message, setMessage] = useState("");
   const [comment, setComment] = useState("");
 
   useEffect(() => {
     axios.get(`http://localhost:3333/api/comments/${id}`).then((res) => {
-      console.log(res)
       if (!res.message) {
         setComments(res.data[0]);
-      } else {
-        setMessage(res.message);
       }
-      console.log(res);
     });
   }, [id]);
 

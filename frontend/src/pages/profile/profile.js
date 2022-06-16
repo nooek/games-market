@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import "./styles.css"
-import { Link, useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 import Pfp from "../../assets/images/profile.svg"
 import { useUserData } from '../../store/userContext';
 
 const Profile = () => {
-  let history = useHistory()
   const [isDev, setIsDev] = useState(false)
   const { userData } = useUserData()
 
@@ -21,7 +20,7 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <h2 className="profile-title">My profile</h2>
+      <h2 className="profile-title">Your profile</h2>
       <div className="profile-general-container">
         <div className="profile-picture-and-name-container">
           <img src={Pfp} className="profile-picture" alt="pfp" />

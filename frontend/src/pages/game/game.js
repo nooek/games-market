@@ -14,6 +14,7 @@ const Game = () => {
 
   useEffect(() => {
     axios.get(`http://localhost:3333/api/games/get-game/${id}`).then((res) => {
+      console.log(res)
       setGame(res.data[0][0]);
     });
   }, [id]);
@@ -44,7 +45,7 @@ const Game = () => {
             <h1 className="gamepage-desc">Description: {game.description}</h1>
             <h1 className="gamepage-categories">Genres: {game.category}</h1>
             <h1 className="gamepage-price">{game.price}$</h1>
-            <h1 className="gamepage-creator">Creator: {game.owner}</h1>
+            <h1 className="gamepage-creator">Creator: {game.game_author}</h1>
           </div>
         </div>
         <button className="download-game-btn" onClick={() => downloadGame()}>
